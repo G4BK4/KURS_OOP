@@ -39,7 +39,7 @@ private:
     bool visible;
 
 public:
-    Hero(float ox = 500.f, float oy = 770.f, float osp = 0.8f)
+    Hero(float ox = 400.f, float oy = 770.f, float osp = 0.3f)
         : score(0)
         , img("inf/ship.png")
         , x_for_bullet(0)
@@ -70,11 +70,18 @@ public:
 
 class Enemy : public Hero {
 public:
-    Enemy(float ox = 500.f, float oy = 60.f, float osp = 0.65f)
+    Enemy(float ox, float oy, float osp)
     {
         setimg("inf/planet1.png"), setvisible(true), setx(ox), sety(oy), sets(osp);
     }
-
+    Enemy(float ox = 400.f, float oy = 60.f)
+    {
+        setimg("inf/planet2.png"), setvisible(true), setx(ox), sety(oy), sets(0.1f);
+    }
+    Enemy(float ox, float oy, std::string oimg)
+    {
+        setimg(oimg), setvisible(true), setx(ox), sety(oy), sets(0.13f);
+    }
     bool hitbox(float a, float b);
 
     void fallen(sf::RenderWindow& window);

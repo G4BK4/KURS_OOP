@@ -9,7 +9,14 @@ int main()
 
     Hero* dinam[2];
     dinam[0] = new Hero;
-    dinam[1] = new Enemy;
+    int num_of_constructor = rand() % 2 + 0;
+    if (num_of_constructor == 0) {
+        dinam[1] = new Enemy(400.f, 60.f, 0.09f);
+    } else if (num_of_constructor == 1) {
+        dinam[1] = new Enemy(400.f, 60.f);
+    } else {
+        dinam[1] = new Enemy(400.f, 60.f, "inf/planet3.png");
+    }
     Enemy astr[3];
 
     for (int i = 0; i < 3; i++)

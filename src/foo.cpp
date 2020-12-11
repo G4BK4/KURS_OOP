@@ -26,11 +26,11 @@ void Enemy::fallen(sf::RenderWindow& window)
         } else if (getscore() == 1) {
             setx(getx() - gets());
         }
-        sety(gety() + rand_float(0.2, 0.8));
+        sety(gety() + 0.1f);
         if (getx() > G - 50.f) {
-            sets(rand_float(0.5, 1)), setscore(1);
+            sets(rand_float(0.01f, 0.15f)), setscore(1);
         } else if (getx() < 50.f) {
-            sets(rand_float(0.5, 1)), setscore(0);
+            sets(rand_float(0.01f, 0.15f)), setscore(0);
         }
         if (gety() > G)
             setvisible(false);
@@ -57,9 +57,9 @@ void Hero::move(sf::Event& event, sf::RenderWindow& window)
 {
     if (event.type == sf::Event::KeyPressed) {
         if (event.key.code == sf::Keyboard::Right)
-            setx(getx() + gets() - 0.2f);
+            setx(getx() + gets() - 0.1f);
         else if (event.key.code == sf::Keyboard::Left)
-            setx(getx() - gets() + 0.2f);
+            setx(getx() - gets() + 0.1f);
         else if (event.key.code == sf::Keyboard::Space)
             if (getyb() == 0)
                 setxb(getx() - 50), setyb(gety() - 100);
